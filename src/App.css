@@ -1,4 +1,5 @@
-.body {
+body{
+  background: transparent;
   font-family: 'Roboto', sans-serif;
   background-image: url('./images/bg.png');
   background-size: cover;
