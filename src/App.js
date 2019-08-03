@@ -107,7 +107,7 @@ class App extends React.Component
                 <div id="checkStyle"><input type="checkbox" class="checkBox" id="M"/><label id="oplabel">Machine Learning</label></div>
                 <div id="checkStyle"><input type="checkbox" class="checkBox" id="W"/><label id="oplabel">Web Development</label></div>
                 <div id="checkStyle"><input type="checkbox" class="checkBox" id="A"/><label id="oplabel">Android Development</label></div>
-                <div id="checkStyle"><input type="checkbox" class="checkBox" id="E"/><label id="oplabel">Electronices</label></div>
+                <div id="checkStyle"><input type="checkbox" class="checkBox" id="E"/><label id="oplabel">Electronics</label></div>
                 <div id="checkStyle"><input type="checkbox" class="checkBox" id="O"/>
                   <label id="oplabel">Other: </label>
                   <input id="others"></input>

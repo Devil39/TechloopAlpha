@@ -6,6 +6,7 @@
   background-attachment: fixed;
   height: 100vh !important;
   width: 100vw !important;
+  z-index: 1000;
 }
 
 #form-div {
