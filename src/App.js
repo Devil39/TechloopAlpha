@@ -18,19 +18,26 @@ function App() {
             <form>
               <label>Name<span> *</span></label>
               <br/>
-              <input className="textField" placeholder="Your response" />
+              <input placeholder="Your response" />
               <label>Registration No.<span> *</span></label>
               <br/>
-              <input className="textField" placeholder="Your response" />
+              <input placeholder="Your response" />
               <label>Email<span> *</span></label>
               <br/>
-              <input className="textField" placeholder="Your response" />
+              <input placeholder="Your response" />
               <label>Contact No.<span> *</span></label>
               <br/>
-              <input className="textField" placeholder="Your response" />
+              <input placeholder="Your response" />
               <label>Interested Domain(s)<span> *</span></label>
               <br/>
-              <input className="checkBox" type="checkbox"/>
+              <div id="checkStyle"><input type="checkbox" class="checkBox" id="M"/><label id="oplabel">Machine Learning</label></div>
+              <div id="checkStyle"><input type="checkbox" class="checkBox" id="W"/><label id="oplabel">Web Development</label></div>
+              <div id="checkStyle"><input type="checkbox" class="checkBox" id="A"/><label id="oplabel">Android Development</label></div>
+              <div id="checkStyle"><input type="checkbox" class="checkBox" id="E"/><label id="oplabel">Electronices</label></div>
+              <div id="checkStyle"><input type="checkbox" class="checkBox" id="O"/>
+                <label id="oplabel">Other: </label>
+                <input id="others"></input>
+              </div>
               <Button variant="primary" id="button">Submit</Button>
             </form>
           </Col>
