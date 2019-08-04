@@ -20,9 +20,20 @@ class App extends React.Component
       wcheck: false,
       acheck: false,
       ocheck: false,
-      form: true
+      form: true,
+      isVerified: false
     };
     this.repcaptchaLoaded=this.repcaptchaLoaded.bind(this);
+    this.submit=this.submit.bind(this);
+    this.verifyCallBack=this.verifyCallBack.bind(this);
+  }
+
+  verifyCallBack=(response)=>{
+    if(response){
+      this.setState({
+        isVerified: true
+      });
+    }
   }
 
   repcaptchaLoaded=()=>{
@@ -51,9 +62,16 @@ class App extends React.Component
     //   {
     //     console.log("Error!");
     //   });
-    this.setState({form: false});
-    this.adddomains();
-    console.log("Submit="+JSON.stringify(this.state));
+    if(this.state.isVerified)
+     {
+      this.setState({form: false});
+      this.adddomains();
+      console.log("Submit="+JSON.stringify(this.state));
+     }
+    else
+     {
+       alert('Please verify that you are a human!');
+     }
   }
   changeregno=(event)=>{
     this.setState({regno: event.target.value});
@@ -183,7 +201,7 @@ class App extends React.Component
       wcheck: false,
       acheck: false,
       ocheck: false,
-      form: false
+      form: true
     };
     this.setState(prevState=>{
       return a;
@@ -214,7 +232,7 @@ class App extends React.Component
       <div>
         {
         this.state.form
-          ?<Form recaptchaLoaded={this.recaptchaLoaded} state={this.state} mlcheckchange={this.mlcheckchange} echeckchange={this.echeckchange} acheckchange={this.acheckchange} ocheckchange={this.ocheckchange} wcheckchange={this.wcheckchange} submit={this.submit} changeemail={this.changeemail} changeregno={this.changeregno} changename={this.changename} changecontactno={this.changecontactno} changeother={this.changeother}/>
+          ?<Form verifyCallBack={this.verifyCallBack} recaptchaLoaded={this.recaptchaLoaded} state={this.state} mlcheckchange={this.mlcheckchange} echeckchange={this.echeckchange} acheckchange={this.acheckchange} ocheckchange={this.ocheckchange} wcheckchange={this.wcheckchange} submit={this.submit} changeemail={this.changeemail} changeregno={this.changeregno} changename={this.changename} changecontactno={this.changecontactno} changeother={this.changeother}/>
           :<ThankYou resetState={this.resetState}/>
         }
       </div>

@@ -6,7 +6,7 @@ import {Col} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import Recaptcha from 'react-recaptcha';
 
-const Form=({recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, acheckchange, ocheckchange, submit, changeregno, changeemail, changename, changecontactno, changeother})=>{
+const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, acheckchange, ocheckchange, submit, changeregno, changeemail, changename, changecontactno, changeother})=>{
     return(
     <div className="body">
       <link href={"https://fonts.googleapis.com/css?family=Roboto&display=swap"} rel="stylesheet"></link>
@@ -36,8 +36,8 @@ const Form=({recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, 
                 <div id="checkStyle"><input type="checkbox" checked={state.echeck} className="checkBox" id="E" onChange={echeckchange}/><label id="oplabel">Electronics</label></div>
                 <div id="checkStyle"><input type="checkbox" checked={state.ocheck} className="checkBox" id="O" onChange={ocheckchange}/>
                   <label id="oplabel">Other: </label>
-                  <input id="others" disabled={state.disabled}></input>
-                  <Recaptcha sitekey="6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz" render="explicit" onloadCallback={recaptchaLoaded}/>
+                  <input id="others" disabled={state.disabled} onChange={changeother}></input>
+                  <Recaptcha sitekey="6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz" render="explicit" onloadCallback={recaptchaLoaded} verifyCallback={verifyCallBack}/>
                 </div>
                 <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
               </form>
