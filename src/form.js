@@ -37,7 +37,9 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                 <div id="checkStyle"><input type="checkbox" checked={state.ocheck} className="checkBox" id="O" onChange={ocheckchange}/>
                   <label id="oplabel">Other: </label>
                   <input id="others" disabled={state.disabled} onChange={changeother}></input>
-                  <Recaptcha sitekey="6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz" render="explicit" onloadCallback={recaptchaLoaded} verifyCallback={verifyCallBack}/>
+                  <Recaptcha sitekey="6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz" render="explicit" onloadCallback={()=>{
+                    console.log("loaded");
+                  }} verifyCallback={verifyCallBack}/>
                 </div>
                 <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
               </form>

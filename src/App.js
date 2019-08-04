@@ -75,7 +75,7 @@ class App extends React.Component
   }
   changeregno=(event)=>{
     this.setState({regno: event.target.value});
-    console.log(event.target.value);
+    //console.log(event.target.value);
   }
   changename=(event)=>{
     this.setState({name: event.target.value});
