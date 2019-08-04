@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.css';
-import * as bs from 'bootstrap/dist/css/bootstrap.css';
-import {Container} from 'react-bootstrap';
-import {Row} from 'react-bootstrap';
-import {Col} from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
+import Form from './form.js';
+import ThankYou from './thankYou.js';
 
 class App extends React.Component
 {
@@ -17,16 +14,22 @@ class App extends React.Component
       contactno: "",
       domains: [],
       other: "",
-      disabled: "",
+      disabled: true,
       mlcheck: false,
       echeck: false,
       wcheck: false,
       acheck: false,
-      ocheck: false
+      ocheck: false,
+      form: true
     };
+    this.repcaptchaLoaded=this.repcaptchaLoaded.bind(this);
   }
+
+  repcaptchaLoaded=()=>{
+    console.log("Success!");
+  }
+
   submit=()=>{
-    console.log("Submit="+JSON.stringify(this.state));
     // console.log("Submitted");
     // console.log(this.state);
     // fetch('',{
@@ -48,10 +51,13 @@ class App extends React.Component
     //   {
     //     console.log("Error!");
     //   });
+    this.setState({form: false});
+    this.adddomains();
+    console.log("Submit="+JSON.stringify(this.state));
   }
   changeregno=(event)=>{
     this.setState({regno: event.target.value});
-    //console.log(this.state.name);
+    console.log(event.target.value);
   }
   changename=(event)=>{
     this.setState({name: event.target.value});
@@ -70,75 +76,146 @@ class App extends React.Component
     //console.log(this.state.name);
   }
   adddomains=(a)=>{
-    this.setState(prevState=>{
-      let domains=Object.assign({},prevState.domains);
-      domains.append(a);
-      return {domains};
-    });
-    //console.log(this.state.name);
+    if(this.state.mlcheck)
+     {
+        this.setState(prevState=>{
+          let domains=prevState.domains;
+          if(domains.length===0)
+           {
+             domains=[];
+             domains=['M'];
+           }
+          else
+           {
+             domains.push('M');
+           }
+          return {domains};
+        });
+     }
+     if(this.state.wcheck)
+     {
+        this.setState(prevState=>{
+          let domains=prevState.domains;
+          if(domains.length===0)
+           {
+             domains=[];
+             domains=['W'];
+           }
+          else
+           {
+             domains.push('W');
+           }
+          return {domains};
+        });
+     }
+     if(this.state.acheck)
+     {
+        this.setState(prevState=>{
+          let domains=prevState.domains;
+          if(domains.length===0)
+           {
+             domains=[];
+             domains=['A'];
+           }
+          else
+           {
+             domains.push('A');
+           }
+          return {domains};
+        });
+     }
+     if(this.state.ocheck)
+     {
+        this.setState(prevState=>{
+          let domains=prevState.domains;
+          if(domains.length===0)
+           {
+             domains=[];
+             domains=['O'];
+           }
+          else
+           {
+             domains.push('O');
+           }
+          return {domains};
+        });
+     }
+     if(this.state.echeck)
+     {
+        this.setState(prevState=>{
+          let domains=prevState.domains;
+          if(domains.length===0)
+           {
+             domains=[];
+             domains=['E'];
+           }
+          else
+           {
+             domains.push('E');
+           }
+          return {domains};
+        });
+     }
   }
-  removedomains=(a)=>{
+  // removedomains=(a)=>{
+  //   this.setState(prevState=>{
+  //     let domains=Object.assign({},prevState.domains);
+  //     domains.splice(domains.indexOf(a),1);
+  //     return {domains};
+  //   });
+  //   //console.log(this.state.name);
+  // }
+  changeDisabled=()=>{
+    this.setState({disabled: !this.state.disabled});
+  }
+  resetState=()=>{
+    let a={
+      regno: "",
+      name: "",
+      email: "",
+      contactno: "",
+      domains: [],
+      other: "",
+      disabled: "",
+      mlcheck: false,
+      echeck: false,
+      wcheck: false,
+      acheck: false,
+      ocheck: false,
+      form: true
+    };
     this.setState(prevState=>{
-      let domains=Object.assign({},prevState.domains);
-      domains.splice(domains.indexOf(a),1);
-      return {domains};
+      return a;
     });
-    //console.log(this.state.name);
   }
   mlcheckchange=(event)=>{
+    //console.log("Before="+this.state.mlcheck);
     this.setState({mlcheck: !this.state.mlcheck});
+    //console.log(this.state.mlcheck);
+    //this.acheckchange();
   }
   echeckchange=(event)=>{
     this.setState({echeck: !this.state.echeck});
+    //console.log(this.state.mlcheck);
   }
   acheckchange=(event)=>{
     this.setState({acheck: !this.state.acheck});
   }
   ocheckchange=(event)=>{
     this.setState({ocheck: !this.state.ocheck});
+    this.changeDisabled();
   }
   wcheckchange=(event)=>{
     this.setState({wcheck: !this.state.wcheck});
   }
   render(){
     return(
-      <div className="body"> 
-      <link href={"https://fonts.googleapis.com/css?family=Roboto&display=swap"} rel="stylesheet"></link>
-        <Container id="main-container">
-          <Row id="rows">
-            <Col md={3}></Col>
-            <Col md={6} id="form-div">
-              <img id="techloopLogo" src={"image.jpg"} alt="" />
-              <form>
-                <label>Name<span> *</span></label>
-                <br/>
-                <input placeholder="Your response" />
-                <label>Registration No.<span> *</span></label>
-                <br/>
-                <input placeholder="Your response" />
-                <label>Email<span> *</span></label>
-                <br/>
-                <input placeholder="Your response" />
-                <label>Contact No.<span> *</span></label>
-                <br/>
-                <input placeholder="Your response" />
-                <label>Interested Domain(s)<span> *</span></label>
-                <br/>
-                <div id="checkStyle"><input type="checkbox" checked={this.state.checked} className="checkBox" id="M" onChange={this.mlcheckchange}/><label id="oplabel">Machine Learning</label></div>
-                <div id="checkStyle"><input type="checkbox" className="checkBox" id="W"/><label id="oplabel" onChange={this.wcheckchange}>Web Development</label></div>
-                <div id="checkStyle"><input type="checkbox" className="checkBox" id="A"/><label id="oplabel" onChange={this.acheckchange}>Android Development</label></div>
-                <div id="checkStyle"><input type="checkbox" className="checkBox" id="E"/><label id="oplabel" onChange={this.echeckchange}>Electronics</label></div>
-                <div id="checkStyle"><input type="checkbox" className="checkBox" id="O" onChange={this.ocheckchange}/>
-                  <label id="oplabel">Other: </label>
-                  <input id="others"></input>
-                </div>
-                <Button variant="primary" id="button" onClick={()=>this.submit()}>Submit</Button>
-              </form>
-            </Col>
-            <Col md={3}></Col>
-          </Row>
-          <img src={"ieee.png"} id="ieee" alt=""></img>
-        </Container>
+      <div>
+        {
+        this.state.form
+          ?<Form recaptchaLoaded={this.recaptchaLoaded} state={this.state} mlcheckchange={this.mlcheckchange} echeckchange={this.echeckchange} acheckchange={this.acheckchange} ocheckchange={this.ocheckchange} wcheckchange={this.wcheckchange} submit={this.submit} changeemail={this.changeemail} changeregno={this.changeregno} changename={this.changename} changecontactno={this.changecontactno} changeother={this.changeother}/>
+          :<ThankYou resetState={this.resetState}/>
+        }
       </div>
     );
   }
