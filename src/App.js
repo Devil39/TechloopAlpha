@@ -72,6 +72,7 @@ class App extends React.Component
     //console.log(this.state.name);
   }
   changeother=(event)=>{
+    //console.log(event.target.value);
     this.setState({other: event.target.value});
     //console.log(this.state.name);
   }
@@ -176,13 +177,13 @@ class App extends React.Component
       contactno: "",
       domains: [],
       other: "",
-      disabled: "",
+      disabled: true,
       mlcheck: false,
       echeck: false,
       wcheck: false,
       acheck: false,
       ocheck: false,
-      form: true
+      form: false
     };
     this.setState(prevState=>{
       return a;

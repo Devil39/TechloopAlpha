@@ -13,7 +13,6 @@ const ThankYou=({resetState})=>{
           <Row id="rows">
             <Col md={3}></Col>
             <Col md={6} id="form-div">
-              <img id="techloopLogo" src={"image.jpg"} alt="" />
               <p className="one">Thank You</p>
               <p className="two">for the submission!</p>
               <p className="three">See you soon at Techloop Alpha :)</p>

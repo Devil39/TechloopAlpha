@@ -36,9 +36,13 @@ const Form=({recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, 
                 <div id="checkStyle"><input type="checkbox" checked={state.echeck} className="checkBox" id="E" onChange={echeckchange}/><label id="oplabel">Electronics</label></div>
                 <div id="checkStyle"><input type="checkbox" checked={state.ocheck} className="checkBox" id="O" onChange={ocheckchange}/>
                   <label id="oplabel">Other: </label>
-                  <input id="others" disabled={state.disabled}></input>
+                  <input id="others" disabled={state.disabled} onChange={changeother}></input>
                 </div>
-                <Recaptcha sitekey="6LcaOLEUAAAAAP26mLS0Qxw6p0svnrtfq-duZ8dw" render="explicit" onloadCallback={recaptchaLoaded}/>
+                <Recaptcha
+                  sitekey={"6LcaOLEUAAAAAP26mLS0Qxw6p0svnrtfq-duZ8dw"}
+                  render="explicit"
+                  onloadCallback={recaptchaLoaded}
+                />
                 <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
               </form>
             </Col>
