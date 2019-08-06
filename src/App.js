@@ -104,7 +104,8 @@ class App extends React.Component
           })/*.then(res=>{console.log(res);console.log(res.json());var re=res.json();return re;})*/
           .then(res=>res.json())
           .then(data=>{
-              if(data!=="User Registered"){
+              //console.log(data);
+              if(data==="User Registered"){
                 alert("Success!");
                 this.setState({form: false});
               }
