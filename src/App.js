@@ -23,7 +23,7 @@ class App extends React.Component
       wcheck: false,
       acheck: false,
       ocheck: false,
-      form: true,
+      form: false,
       isVerified: false,
       token: ""
     };
@@ -106,11 +106,15 @@ class App extends React.Component
           .then(res=>res.json())
           .then(data=>{
               if(data!=="User Registered"){
-                alert(JSON.stringify(data));
+                alert("Success!");
               }
-            }).catch(()=>
+              else{
+                console.log(data);
+                alert("Error while registering user!");
+              }
+            }).catch((err)=>
             {
-              console.log("Error!");
+              console.log(err);
               alert("Error while registering user!");
             });
         }
