@@ -292,6 +292,9 @@ class App extends React.Component
     this.setState({wcheck: !this.state.wcheck});
   }
 
+  // componentDidMount(){
+  //   console.log("Form loaded :", process.env.REACT_APP_API_URL)
+  // }
   render(){
     return(
       <div>

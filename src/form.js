@@ -20,19 +20,19 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
               <img id="techloopLogo" src={"image.jpg"} alt="" />
               <form>
                 <label>Name<span> *</span></label>
-                <br/>
+
                 <input placeholder="e.g - John Wick" onChange={changename}/>
                 <label>Registration No.<span> *</span></label>
-                <br/>
+
                 <input placeholder="e.g - 19BCE0011" onChange={changeregno}/>
                 <label>Email<span> *</span></label>
-                <br/>
+
                 <input placeholder="e.g - foo@bar.com" onChange={changeemail}/>
                 <label>Contact No.<span> *</span></label>
-                <br/>
+
                 <input placeholder="Your mobile number" onChange={changecontactno}/>
                 <label>Interested Domain(s)<span> *</span></label>
-                <br/>
+
                 <div id="checkStyle"><input type="checkbox" checked={state.mlcheck} className="checkBox" id="M" onChange={mlcheckchange}/><label id="oplabel">Machine Learning</label></div>
                 <div id="checkStyle"><input type="checkbox" checked={state.wcheck} className="checkBox" id="W" onChange={wcheckchange}/><label id="oplabel" >Web Development</label></div>
                 <div id="checkStyle"><input type="checkbox" checked={state.acheck} className="checkBox" id="A" onChange={acheckchange}/><label id="oplabel">Android Development</label></div>
@@ -41,7 +41,7 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                   <label id="oplabel">Other: </label>
                   <input id="others" disabled={state.disabled} onChange={changeother}></input>
                 </div>
-                <br/>
+
                 <div id="recaptcha">
                     <Recaptcha style="margin: 0px auto;" sitekey={'6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz'} render="explicit" onloadCallback={()=>{
                       console.log("loaded");
