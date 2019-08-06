@@ -43,7 +43,7 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                 </div>
 
                 <div id="recaptcha">
-                    <Recaptcha style="margin: 0px auto;" sitekey={'6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz'} render="explicit" onloadCallback={()=>{
+                    <Recaptcha style="margin: 0px auto;" sitekey={'6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz'} render="explicit" onloadCallback={(res)=>{
                       console.log("loaded");
                     }} verifyCallback={verifyCallBack}/>
                 </div>
@@ -55,9 +55,6 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
             <Col md={3}></Col>
           </Row>
           <img src={"ieee.png"} id="ieee_logo" alt=""></img>
-          {/* <div id="con-ieee">
-            
-          </div> */}
         </Container>
       </div>
     );
