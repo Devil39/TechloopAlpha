@@ -80,7 +80,7 @@ class App extends React.Component
       if(this.state.isVerified)
         {
           this.setState({form: false});
-          console.log("Submit="+JSON.stringify(this.state));
+          //console.log("Submit="+JSON.stringify(this.state));
           console.log("Submitted");
           fetch(process.env.REACT_APP_API_URL,{
             method: 'post',
