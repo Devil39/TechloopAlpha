@@ -82,7 +82,7 @@ class App extends React.Component
           this.setState({form: false});
           console.log("Submit="+JSON.stringify(this.state));
           console.log("Submitted");
-          fetch('https://techloop-alpha.herokuapp.com/api/user/reg',{
+          fetch(process.env.REACT_APP_API_URL,{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: this.state.ocheck?JSON.stringify({
