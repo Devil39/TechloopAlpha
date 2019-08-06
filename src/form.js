@@ -6,6 +6,9 @@ import {Col} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import Recaptcha from 'react-recaptcha';
 
+require('dotenv').config();
+
+
 const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, acheckchange, ocheckchange, submit, changeregno, changeemail, changename, changecontactno, changeother})=>{
     return(
     <div className="body">
@@ -40,7 +43,7 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                 </div>
                 <br/>
                 <div id="recaptcha">
-                    <Recaptcha style="margin: 0px auto;" sitekey='6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz' render="explicit" onloadCallback={()=>{
+                    <Recaptcha style="margin: 0px auto;" sitekey={process.env.REACT_APP_RECAPTCHA_KEY} render="explicit" onloadCallback={()=>{
                       console.log("loaded");
                     }} verifyCallback={verifyCallBack}/>
                 </div>
