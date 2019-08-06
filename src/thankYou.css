@@ -1,4 +1,4 @@
-.one{
+/* .one{
     font-size: 40px;
     font-weight: 500;
     margin: 20.1% 31.8% 0% 31.9%;
@@ -22,4 +22,13 @@
     margin: 20.1% 37.6% 1% 36.3%;
     color: #B4ABAB;
     cursor: pointer;
+} */
+
+#one, #two, #three{
+    text-align: center;
+}
+
+#paneer {
+    padding-top: 76px;
+    padding-bottom: 76px;
 }
