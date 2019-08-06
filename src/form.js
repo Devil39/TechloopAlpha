@@ -18,16 +18,16 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
               <form>
                 <label>Name<span> *</span></label>
                 <br/>
-                <input placeholder="Your response" onChange={changename}/>
+                <input placeholder="e.g - John Wick" onChange={changename}/>
                 <label>Registration No.<span> *</span></label>
                 <br/>
-                <input placeholder="Your response" onChange={changeregno}/>
+                <input placeholder="e.g - 19BCE0011" onChange={changeregno}/>
                 <label>Email<span> *</span></label>
                 <br/>
-                <input placeholder="Your response" onChange={changeemail}/>
+                <input placeholder="e.g - foo@bar.com" onChange={changeemail}/>
                 <label>Contact No.<span> *</span></label>
                 <br/>
-                <input placeholder="Your response" onChange={changecontactno}/>
+                <input placeholder="Your mobile number" onChange={changecontactno}/>
                 <label>Interested Domain(s)<span> *</span></label>
                 <br/>
                 <div id="checkStyle"><input type="checkbox" checked={state.mlcheck} className="checkBox" id="M" onChange={mlcheckchange}/><label id="oplabel">Machine Learning</label></div>
