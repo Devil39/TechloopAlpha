@@ -24,11 +24,20 @@
     cursor: pointer;
 } */
 
-#one, #two, #three{
+#one, #two, #three, #four{
     text-align: center;
+}
+
+#four{
+    /* margin-top: 70px; */
+    color: #B4A2A2;
+}
+
+.filldiv{
+    /* margin: 30px */
 }
 
 #paneer {
     padding-top: 76px;
-    padding-bottom: 76px;
+    padding-bottom: 0px;
 }
