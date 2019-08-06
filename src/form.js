@@ -17,7 +17,9 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
           <Row id="rows">
             <Col md={3}></Col>
             <Col md={6} id="form-div">
-              <img id="techloopLogo" src={"image.jpg"} alt="" />
+              <div id="techloop-cont">
+                <img id="techloopLogo" src={"image.jpg"} alt="" />
+              </div>
               <form>
                 <label>Name<span> *</span></label>
 
@@ -54,7 +56,9 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
             </Col>
             <Col md={3}></Col>
           </Row>
-          <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          <div id="con-ieee">
+            <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          </div>
         </Container>
       </div>
     );
