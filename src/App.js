@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Form from './form.js';
 import ThankYou from './thankYou.js';
+import validator from 'validator';
+require('dotenv').config();
 
 class App extends React.Component
 {
@@ -21,7 +23,8 @@ class App extends React.Component
       acheck: false,
       ocheck: false,
       form: true,
-      isVerified: false
+      isVerified: false,
+      token: ""
     };
     this.repcaptchaLoaded=this.repcaptchaLoaded.bind(this);
     this.submit=this.submit.bind(this);
@@ -29,10 +32,15 @@ class App extends React.Component
   }
 
   verifyCallBack=(response)=>{
+    //console.log(response);
     if(response){
       this.setState({
         isVerified: true
       });
+      this.setState({token: response});
+    }
+    if(this.state.isVerified && this.state.domains.length===0){
+      this.adddomains();
     }
   }
 
@@ -40,38 +48,75 @@ class App extends React.Component
     console.log("Success!");
   }
 
+  checkNameInput=()=>{
+    var flag=true;
+    this.state.name.split(" ").map(val=>{
+      if(!validator.isAlpha(val)){
+        flag=false;
+        //console.log(val);
+        return false;
+      }
+      else{
+        return true;
+      }
+    });
+    return flag;
+  }
+
+  checkInputs=()=>{
+    if((validator.isEmail(this.state.email)) && (validator.isMobilePhone(this.state.contactno)) && (validator.isAlphanumeric(this.state.regno)) && this.checkNameInput() && (validator.isAlphanumeric(this.state.other) || this.state.other==="")){
+      return true;
+    }
+  }
+
   submit=()=>{
-    // console.log("Submitted");
-    // console.log(this.state);
-    // fetch('',{
-    //   method: 'post',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //       name: this.state.name,
-    //       regNo: this.state.regno,
-    //       email: this.state.email,
-    //       contactNo: this.state.contactno,
-    //       InitDomain: this.state.domains,
-    //       other: this.state.other
-    //   })
-    // })/*.then(res=>{console.log(res);console.log(res.json());var re=res.json();return re;})*/
-    // .then(res=>res.json())
-    // .then(data=>{
-    //     console.log("data");
-    //   }).catch(()=>
-    //   {
-    //     console.log("Error!");
-    //   });
-    if(this.state.isVerified)
-     {
-      this.setState({form: false});
-      this.adddomains();
-      console.log("Submit="+JSON.stringify(this.state));
-     }
-    else
-     {
-       alert('Please verify that you are a human!');
-     }
+    var a=this.checkInputs();
+    if(a){
+      if(this.state.isVerified)
+        {
+          this.setState({form: false});
+          console.log("Submit="+JSON.stringify(this.state));
+          console.log("Submitted");
+          fetch('https://techloop-alpha.herokuapp.com/api/user/reg',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: this.state.ocheck?JSON.stringify({
+                'g-recaptcha-response': this.state.token,
+                name: this.state.name,
+                regNo: this.state.regno,
+                email: this.state.email,
+                contactNo: this.state.contactno,
+                InitDomain: this.state.domains,
+                other: this.state.other,
+              })
+              :JSON.stringify({
+                'g-recaptcha-response': this.state.token,
+                name: this.state.name,
+                regNo: this.state.regno,
+                email: this.state.email,
+                contactNo: this.state.contactno,
+                InitDomain: this.state.domains
+            })
+          })/*.then(res=>{console.log(res);console.log(res.json());var re=res.json();return re;})*/
+          .then(res=>res.json())
+          .then(data=>{
+              if(data!=="User Registered"){
+                alert(JSON.stringify(data));
+              }
+            }).catch(()=>
+            {
+              console.log("Error!");
+              alert("Error while registering user!");
+            });
+        }
+      else
+        {
+          alert('Please verify that you are a human!');
+        }
+    }
+    else{
+      alert("Invalid Input!");
+    }
   }
   changeregno=(event)=>{
     this.setState({regno: event.target.value});
@@ -209,6 +254,8 @@ class App extends React.Component
   }
   mlcheckchange=(event)=>{
     //console.log("Before="+this.state.mlcheck);
+    //var re=/[0-9]{2}[A-Z]{3}[0-9]{4}/;
+    //console.log(String(this.state.regno).match(re));
     this.setState({mlcheck: !this.state.mlcheck});
     //console.log(this.state.mlcheck);
     //this.acheckchange();
