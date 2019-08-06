@@ -3,6 +3,7 @@ import './App.css';
 import Form from './form.js';
 import ThankYou from './thankYou.js';
 import validator from 'validator';
+
 require('dotenv').config();
 
 class App extends React.Component
@@ -275,6 +276,7 @@ class App extends React.Component
   wcheckchange=(event)=>{
     this.setState({wcheck: !this.state.wcheck});
   }
+
   render(){
     return(
       <div>
