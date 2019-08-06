@@ -137,7 +137,7 @@ input:focus{
   margin-top: -10% !important;
 }
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
 
   body {
     overflow-x: hidden;
@@ -147,6 +147,7 @@ input:focus{
     background-color: #fff;
     /* width: 94%; */
     /* margin: 10% auto; */
+    margin: 10% 10%;
     height: auto;
     border-top: 10px solid #4b78be;
     border-radius: 10px;

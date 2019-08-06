@@ -79,10 +79,9 @@ class App extends React.Component
     if(a){
       if(this.state.isVerified)
         {
-          this.setState({form: false});
           //console.log("Submit="+JSON.stringify(this.state));
           console.log("Submitted");
-          fetch(process.env.REACT_APP_API_URL,{
+          fetch('https://techloop-alpha.herokuapp.com/api/user/reg',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: this.state.ocheck?JSON.stringify({
@@ -107,6 +106,7 @@ class App extends React.Component
           .then(data=>{
               if(data!=="User Registered"){
                 alert("Success!");
+                this.setState({form: false});
               }
               else{
                 console.log(data);
