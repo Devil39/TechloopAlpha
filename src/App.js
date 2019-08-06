@@ -14,7 +14,7 @@ class App extends React.Component
       name: "",
       email: "",
       contactno: "",
-      domains: [],
+      domains: new Set([[]]),
       other: "",
       disabled: true,
       mlcheck: false,
@@ -40,7 +40,7 @@ class App extends React.Component
       this.setState({token: response});
     }
     if(this.state.isVerified && this.state.domains.length===0){
-      this.adddomains();
+      //this.adddomains();
     }
   }
 
@@ -70,6 +70,7 @@ class App extends React.Component
   }
 
   submit=()=>{
+    this.adddomains();
     var a=this.checkInputs();
     if(a){
       if(this.state.isVerified)
@@ -86,7 +87,7 @@ class App extends React.Component
                 regNo: this.state.regno,
                 email: this.state.email,
                 contactNo: this.state.contactno,
-                InitDomain: this.state.domains,
+                InitDomain: Array.from(this.state.domains),
                 other: this.state.other,
               })
               :JSON.stringify({
@@ -95,7 +96,7 @@ class App extends React.Component
                 regNo: this.state.regno,
                 email: this.state.email,
                 contactNo: this.state.contactno,
-                InitDomain: this.state.domains
+                InitDomain: Array.from(this.state.domains)
             })
           })/*.then(res=>{console.log(res);console.log(res.json());var re=res.json();return re;})*/
           .then(res=>res.json())
@@ -146,12 +147,12 @@ class App extends React.Component
           let domains=prevState.domains;
           if(domains.length===0)
            {
-             domains=[];
-             domains=['M'];
+            domains=new Set([]);
+            domains.add('M');
            }
           else
            {
-             domains.push('M');
+             domains.add('M');
            }
           return {domains};
         });
@@ -162,12 +163,12 @@ class App extends React.Component
           let domains=prevState.domains;
           if(domains.length===0)
            {
-             domains=[];
-             domains=['W'];
+             domains=new Set([]);
+             domains.add('W');
            }
           else
            {
-             domains.push('W');
+             domains.add('W');
            }
           return {domains};
         });
@@ -178,12 +179,12 @@ class App extends React.Component
           let domains=prevState.domains;
           if(domains.length===0)
            {
-             domains=[];
-             domains=['A'];
+            domains=new Set([]);
+            domains.add('A');
            }
           else
            {
-             domains.push('A');
+             domains.add('A');
            }
           return {domains};
         });
@@ -194,12 +195,12 @@ class App extends React.Component
           let domains=prevState.domains;
           if(domains.length===0)
            {
-             domains=[];
-             domains=['O'];
+            domains=new Set([]);
+            domains.add('O');
            }
           else
            {
-             domains.push('O');
+             domains.add('O');
            }
           return {domains};
         });
@@ -210,12 +211,12 @@ class App extends React.Component
           let domains=prevState.domains;
           if(domains.length===0)
            {
-             domains=[];
-             domains=['E'];
+            domains=new Set([]);
+            domains.add('E');
            }
           else
            {
-             domains.push('E');
+             domains.add('E');
            }
           return {domains};
         });
@@ -238,7 +239,7 @@ class App extends React.Component
       name: "",
       email: "",
       contactno: "",
-      domains: [],
+      domains: new Set([]),
       other: "",
       disabled: true,
       mlcheck: false,
