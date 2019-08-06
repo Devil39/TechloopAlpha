@@ -291,12 +291,11 @@ class App extends React.Component
   render(){
     return(
       <div>
-        {/* {
+        {
         this.state.form
           ?<Form verifyCallBack={this.verifyCallBack} recaptchaLoaded={this.recaptchaLoaded} state={this.state} mlcheckchange={this.mlcheckchange} echeckchange={this.echeckchange} acheckchange={this.acheckchange} ocheckchange={this.ocheckchange} wcheckchange={this.wcheckchange} submit={this.submit} changeemail={this.changeemail} changeregno={this.changeregno} changename={this.changename} changecontactno={this.changecontactno} changeother={this.changeother}/>
           :<ThankYou resetState={this.resetState}/>
-        } */}
-        <ThankYou resetState={this.resetState}/>
+        }
       </div>
     );
   }
