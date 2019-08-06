@@ -38,19 +38,23 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                   <label id="oplabel">Other: </label>
                   <input id="others" disabled={state.disabled} onChange={changeother}></input>
                 </div>
-                <div id="recaptcha" style={{marginLeft: '15%', marginTop: '10%', marginBottom: '0%'}}>
-                    <Recaptcha style="margin: 0px 20px;" sitekey='6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz' render="explicit" onloadCallback={()=>{
+                <br/>
+                <div id="recaptcha">
+                    <Recaptcha style="margin: 0px auto;" sitekey='6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz' render="explicit" onloadCallback={()=>{
                       console.log("loaded");
                     }} verifyCallback={verifyCallBack}/>
-                  </div>
-                <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
+                </div>
+                <div id="sub-div">
+                  <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
+                </div>
               </form>
             </Col>
             <Col md={3}></Col>
           </Row>
-          <div id="con-ieee">
-            <img src={"ieee.png"} id="ieee" alt=""></img>
-          </div>
+          <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          {/* <div id="con-ieee">
+            
+          </div> */}
         </Container>
       </div>
     );

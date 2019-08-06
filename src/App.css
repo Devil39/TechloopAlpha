@@ -15,7 +15,7 @@ body{
   margin: 0 !important;
 }
 #form-div {
-  width: 100%;
+  display: block;
   background-color: #fff;
   margin: 10% auto;
   height: auto;
@@ -36,9 +36,17 @@ form{
   padding: 0px 7.9%;
 }
 
+#ieee_logo{
+  width: 200px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 label{
   display: block;
-  margin: 7.9% auto 85% auto;
+  margin: 7.9% auto;
   font-size: 18px;
   font-weight: 550;
   font-style: normal;
@@ -58,7 +66,7 @@ input{
   border: none;
   border-bottom: 1px solid #d6d6d6;
   width: 55%;
-  margin: 7.9% auto 44.8% auto;
+  margin: 7.9% auto;
 }
 
 input:focus{
@@ -91,10 +99,15 @@ input:focus{
   color: var(--black);
 }
 
+#sub-div{
+  display: flex;
+  width: 100%;
+}
+
 #button{
   display: inline-block;
   width: 120px;
-  margin: 40px 36.8%;
+  margin: 40px auto;
   margin-top: 16% !important;
   border-radius: 5px !important;
   background-color: #4b78be !important;
@@ -107,6 +120,7 @@ input:focus{
 }
 
 #recaptcha {
+  margin: 10px 0px;
   width: 100%;
   display: flex;
 }
@@ -123,6 +137,10 @@ input:focus{
 }
 
 @media (max-width: 576px) { 
+
+  body {
+    overflow-x: hidden;
+  }
 
   #form-div {
     background-color: #fff;
