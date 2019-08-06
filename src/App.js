@@ -42,6 +42,7 @@ class App extends React.Component
     }
     if(this.state.isVerified && this.state.domains.length===0){
       //this.pushdomains();
+      //this.adddomains();
     }
   }
 
@@ -70,10 +71,11 @@ class App extends React.Component
     }
   }
 
-  submit=()=>{
-    this.adddomains();
+  submit= async ()=>{
+    const x = await this.adddomains();
     //this.setState({domains: Array.from(this.state.domains)});
     var a=this.checkInputs();
+    console.log(this.state);
     if(a){
       if(this.state.isVerified)
         {
@@ -143,86 +145,94 @@ class App extends React.Component
     //console.log(this.state.name);
   }
   adddomains=(a)=>{
-    if(this.state.mlcheck)
-     {
-        this.setState(prevState=>{
-          let domains=prevState.domains;
-          if(domains.length===0)
-           {
-            domains=[];
-            domains.push('M');
-           }
-          else
-           {
-             domains.push('M');
-           }
-          return {domains};
-        });
-     }
-     if(this.state.wcheck)
-     {
-        this.setState(prevState=>{
-          let domains=prevState.domains;
-          if(domains.length===0)
-           {
-             domains=[];
-             domains.push('W');
-           }
-          else
-           {
-             domains.push('W');
-           }
-          return {domains};
-        });
-     }
-     if(this.state.acheck)
-     {
-        this.setState(prevState=>{
-          let domains=prevState.domains;
-          if(domains.length===0)
-           {
-            domains=[];
-            domains.push('A');
-           }
-          else
-           {
-             domains.push('A');
-           }
-          return {domains};
-        });
-     }
-     if(this.state.ocheck)
-     {
-        this.setState(prevState=>{
-          let domains=prevState.domains;
-          if(domains.length===0)
-           {
-            domains=[];
-            domains.push('O');
-           }
-          else
-           {
-             domains.push('O');
-           }
-          return {domains};
-        });
-     }
-     if(this.state.echeck)
-     {
-        this.setState(prevState=>{
-          let domains=prevState.domains;
-          if(domains.length===0)
-           {
-            domains=[];
-            domains.push('E');
-           }
-          else
-           {
-             domains.push('E');
-           }
-          return {domains};
-        });
-     }
+    return new Promise((resolve, reject) => {
+
+      if(this.state.mlcheck)
+       {
+          this.setState(prevState=>{
+            let domains=prevState.domains;
+            if(domains.length===0)
+             {
+              domains=[];
+              domains.push('M');
+             }
+            else
+             {
+               domains.push('M');
+             }
+            return {domains};
+          });
+          resolve();
+       }
+       if(this.state.wcheck)
+       {
+          this.setState(prevState=>{
+            let domains=prevState.domains;
+            if(domains.length===0)
+             {
+               domains=[];
+               domains.push('W');
+             }
+            else
+             {
+               domains.push('W');
+             }
+            return {domains};
+          });
+          resolve();
+       }
+       if(this.state.acheck)
+       {
+          this.setState(prevState=>{
+            let domains=prevState.domains;
+            if(domains.length===0)
+             {
+              domains=[];
+              domains.push('A');
+             }
+            else
+             {
+               domains.push('A');
+             }
+            return {domains};
+          });
+          resolve();
+       }
+       if(this.state.ocheck)
+       {
+          this.setState(prevState=>{
+            let domains=prevState.domains;
+            if(domains.length===0)
+             {
+              domains=[];
+              domains.push('O');
+             }
+            else
+             {
+               domains.push('O');
+             }
+            return {domains};
+          });
+          resolve();
+       }
+       if(this.state.echeck)
+       {
+          this.setState(prevState=>{
+            let domains=prevState.domains;
+            if(domains.length===0)
+             {
+              domains=[];
+              domains.push('E');
+             }
+            else
+             {
+               domains.push('E');
+             }
+            return {domains};
+          });
+          resolve();
+       }
+    })
   }
   // removedomains=(a)=>{
   //   this.setState(prevState=>{
