@@ -80,7 +80,7 @@ class App extends React.Component
       if(this.state.isVerified)
         {
           this.setState({form: false});
-          console.log("Submit="+JSON.stringify(this.state));
+          //console.log("Submit="+JSON.stringify(this.state));
           console.log("Submitted");
           fetch(process.env.REACT_APP_API_URL,{
             method: 'post',
@@ -106,11 +106,15 @@ class App extends React.Component
           .then(res=>res.json())
           .then(data=>{
               if(data!=="User Registered"){
-                alert(JSON.stringify(data));
+                alert("Success!");
               }
-            }).catch(()=>
+              else{
+                console.log(data);
+                alert("Error while registering user!");
+              }
+            }).catch((err)=>
             {
-              console.log("Error!");
+              console.log(err);
               alert("Error while registering user!");
             });
         }
