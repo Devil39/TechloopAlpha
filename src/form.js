@@ -37,19 +37,19 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                 <div id="checkStyle"><input type="checkbox" checked={state.ocheck} className="checkBox" id="O" onChange={ocheckchange}/>
                   <label id="oplabel">Other: </label>
                   <input id="others" disabled={state.disabled} onChange={changeother}></input>
-                  <div id="recaptcha" style={{marginLeft: '15%', marginTop: '10%', marginBottom: '0%'}}>
+                </div>
+                <div id="recaptcha" style={{marginLeft: '15%', marginTop: '10%', marginBottom: '0%'}}>
                     <Recaptcha style="margin: 0px 20px;" sitekey='6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz' render="explicit" onloadCallback={()=>{
                       console.log("loaded");
                     }} verifyCallback={verifyCallBack}/>
                   </div>
-                </div>
                 <Button variant="primary" id="button" onClick={()=>submit()}>Submit</Button>
               </form>
             </Col>
             <Col md={3}></Col>
           </Row>
           <div id="con-ieee">
-          <img src={"ieee.png"} id="ieee" alt=""></img>
+            <img src={"ieee.png"} id="ieee" alt=""></img>
           </div>
         </Container>
       </div>

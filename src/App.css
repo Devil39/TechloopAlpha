@@ -11,7 +11,11 @@ body{
   overflow-x: hidden;
 }
 
+#recaptcha{
+  margin: 0 !important;
+}
 #form-div {
+  width: 100%;
   background-color: #fff;
   margin: 10% auto;
   height: auto;
@@ -122,8 +126,8 @@ input:focus{
 
   #form-div {
     background-color: #fff;
-    width: 94%;
-    margin: 10% auto;
+    /* width: 94%; */
+    /* margin: 10% auto; */
     height: auto;
     border-top: 10px solid #4b78be;
     border-radius: 10px;
