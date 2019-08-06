@@ -23,7 +23,7 @@ class App extends React.Component
       wcheck: false,
       acheck: false,
       ocheck: false,
-      form: false,
+      form: true,
       isVerified: false,
       token: ""
     };
