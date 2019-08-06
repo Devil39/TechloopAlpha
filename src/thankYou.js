@@ -14,15 +14,14 @@ const ThankYou=({resetState})=>{
             <Col md={3}></Col>
             <Col md={6} id="form-div">
               <div id='paneer'>
-              <h1 id="one">Thank you</h1>
-              <h5 id="two">for your submission</h5><br/>
-              <p id="three">See you soon at Techloop Alpha :)</p><br/>
-              <div className="filldiv"></div>
-              <p id="four" onClick={resetState}>Submit another response</p>
-              {/* <p className="one">Thank You</p>
-              <p className="two">for the submission!</p>
-              <p className="three">See you soon at Techloop Alpha :)</p>
-              <p className="four" onClick={resetState}>Submit another response</p> */}
+                <h1 id="one">Thank you</h1>
+                <h5 id="two">for your submission</h5><br/>
+                <p id="three">See you soon at Techloop Alpha :)</p><br/>
+                <p id="four" onClick={resetState}>Submit another response</p>
+                {/* <p className="one">Thank You</p>
+                <p className="two">for the submission!</p>
+                <p className="three">See you soon at Techloop Alpha :)</p>
+                <p className="four" onClick={resetState}>Submit another response</p> */}
               </div>
             </Col>
             <Col md={3}></Col>
