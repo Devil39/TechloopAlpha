@@ -8,6 +8,7 @@ body{
   height: 100vh !important;
   width: 100vw !important;
   z-index: 1000;
+  overflow-x: hidden;
 }
 
 #form-div {
