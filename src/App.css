@@ -47,7 +47,7 @@ form{
 
 label{
   display: block;
-  margin: 7.9% auto;
+  /* margin: 7.9% auto; */
   font-size: 18px;
   font-weight: 550;
   font-style: normal;
@@ -66,8 +66,9 @@ input{
   display: block;
   border: none;
   border-bottom: 1px solid #d6d6d6;
-  width: 55%;
-  margin: 7.9% auto;
+  width: 65%;
+  /* margin: 7.9% auto; */
+  margin-bottom: 42px;
 }
 
 input:focus{
