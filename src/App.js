@@ -155,6 +155,7 @@ class App extends React.Component
                 // this.forceUpdate();
                 console.log(data);
                 alert(data.msg);
+                window.grecaptcha.reset();
                 //alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
             }).catch( async (err)=>
@@ -175,7 +176,7 @@ class App extends React.Component
     }
     else{
       //alert("Please check the form fields again, make sure there are no special characters in the fields(including dots)");
-      console.log("Oops, make sure not to have special character in any field");
+      alert("Oops, make sure not to have special character in any field");
     }
   }
   changeregno=(event)=>{
