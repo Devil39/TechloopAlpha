@@ -121,19 +121,19 @@ class App extends React.Component
                 this.setState({form: false});
               }
               else{
-                await this.resetState();
-                this.setState(()=>{
-                });
-                this.forceUpdate();
+                // await this.resetState();
+                // this.setState(()=>{
+                // });
+                // this.forceUpdate();
                 console.log(data);
                 alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
             }).catch( async (err)=>
             { 
-              await this.resetState();
-                this.setState(()=>{
-                });
-                this.forceUpdate();
+              // await this.resetState();
+              //   this.setState(()=>{
+              //   });
+              //   this.forceUpdate();
               console.log(err);
               alert("Error while registering user!");
             });
