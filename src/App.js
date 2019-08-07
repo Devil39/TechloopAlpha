@@ -98,20 +98,16 @@ class App extends React.Component
 
   setDomains=()=>{
     var a=new Set(this.state.domains);
-    console.log(a);
-    console.log(Array.from(a));
+    //console.log(a);
+    //console.log(Array.from(a));
     this.setState({domains: Array.from(a)});
   }
 
   submit=async ()=>{
-    console.log("1");
     const x = await this.adddomains();
-    console.log("2");
     const z= await this.setDomains();
     //this.setState({domains: Array.from(this.state.domains)});
-    console.log("3");
     var y=await this.trimInputs();
-    console.log("4");
     var a=this.checkInputs();
     console.log(this.state);
     if(a){
