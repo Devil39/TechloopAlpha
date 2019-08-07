@@ -100,6 +100,9 @@ class App extends React.Component
     var a=new Set(this.state.domains);
     //console.log(a);
     //console.log(Array.from(a));
+    if(!this.state.ocheck){
+      this.setState({other: ""});
+    }
     this.setState({domains: Array.from(a)});
   }
 
