@@ -119,6 +119,7 @@ class App extends React.Component
               if(data.status===200){
                 //alert("Success!");
                 this.setState({form: false});
+                console.log(data);
               }
               else{
                 // await this.resetState();
