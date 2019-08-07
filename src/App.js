@@ -65,8 +65,23 @@ class App extends React.Component
     return flag;
   }
 
+  checkOtherInput=()=>{
+    var flag=true;
+    this.state.other.split(" ").map(val=>{
+      if(!validator.isAlpha(val)){
+        flag=false;
+        //console.log(val);
+        return false;
+      }
+      else{
+        return true;
+      }
+    });
+    return flag;
+  }
+
   checkInputs=()=>{
-    if((validator.isEmail(this.state.email)) && (validator.isMobilePhone(this.state.contactno)) && (validator.isAlphanumeric(this.state.regno)) && this.checkNameInput() && (validator.isAlphanumeric(this.state.other) || this.state.other==="")){
+    if((validator.isEmail(this.state.email)) && (validator.isMobilePhone(this.state.contactno)) && (validator.isAlphanumeric(this.state.regno)) && this.checkNameInput() && (this.checkOtherInput() || this.state.other==="")){
       return true;
     }
   }
@@ -81,8 +96,16 @@ class App extends React.Component
     });
   }
 
+  setDomains=()=>{
+    var a=new Set(this.state.domains);
+    console.log(a);
+    console.log(Array.from(a));
+    this.setState({domains: Array.from(a)});
+  }
+
   submit= async ()=>{
     const x = await this.adddomains();
+    const z= await this.setDomains();
     //this.setState({domains: Array.from(this.state.domains)});
     var y=await this.trimInputs();
     var a=this.checkInputs();
