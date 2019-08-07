@@ -54,7 +54,7 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
             </Col>
             <Col md={3}></Col>
           </Row>
-          <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          <img src={"ieee.png"} id="ieee_logo" alt="">  </img>
         </Container>
       </div>
     );
