@@ -104,10 +104,14 @@ class App extends React.Component
   }
 
   submit=async ()=>{
+    console.log("1");
     const x = await this.adddomains();
+    console.log("2");
     const z= await this.setDomains();
     //this.setState({domains: Array.from(this.state.domains)});
+    console.log("3");
     var y=await this.trimInputs();
+    console.log("4");
     var a=this.checkInputs();
     console.log(this.state);
     if(a){
@@ -170,7 +174,8 @@ class App extends React.Component
         }
     }
     else{
-      alert("Please check the form fields again, make sure there are no special characters in the fields(including dots)");
+      //alert("Please check the form fields again, make sure there are no special characters in the fields(including dots)");
+      console.log("Oops, make sure not to have special character in any field");
     }
   }
   changeregno=(event)=>{
@@ -282,7 +287,8 @@ class App extends React.Component
           });
           resolve();
        }
-    })
+       resolve();
+    });
   }
   // removedomains=(a)=>{
   //   this.setState(prevState=>{
