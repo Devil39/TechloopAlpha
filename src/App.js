@@ -71,9 +71,20 @@ class App extends React.Component
     }
   }
 
+  trimInputs=()=>{
+    return new Promise((resolve,reject)=>{
+      this.state.email.trim();
+      this.state.name.trim();
+      this.state.regno.trim();
+      this.state.contactno.trim();
+      resolve();
+    });
+  }
+
   submit= async ()=>{
     const x = await this.adddomains();
     //this.setState({domains: Array.from(this.state.domains)});
+    //var y=await this.trimInputs();
     var a=this.checkInputs();
     console.log(this.state);
     if(a){
