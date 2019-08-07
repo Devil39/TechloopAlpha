@@ -150,7 +150,7 @@ class App extends React.Component
                 // });
                 // this.forceUpdate();
                 console.log(data);
-                alert(data);
+                alert(data.msg);
                 //alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
             }).catch( async (err)=>
@@ -161,7 +161,7 @@ class App extends React.Component
               //   this.forceUpdate();
               console.log(err);
               //alert("Error while registering user!");
-              alert(err);
+              alert(JSON.stringify(err));
             });
         }
       else
