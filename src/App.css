@@ -1,18 +1,13 @@
 body{
   background: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   background-image: url('./images/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh !important;
   width: 100vw !important;
   z-index: 1000;
   overflow-x: hidden;
-}
-
-#recaptcha{
-  margin: 0 !important;
 }
 
 #form-div {
@@ -25,10 +20,15 @@ body{
   box-shadow: 0px 0px 20px 0px gray;
 }
 
+#techloop-cont{
+  width: 100%;
+  display: flex;
+}
+
 #techloopLogo{
   float: none;
   width: 41.1%;
-  margin: 6.3% 29.4%;
+  margin: 6.3% auto;
   height: auto;
   align-self: center;
 }
@@ -37,17 +37,8 @@ form{
   padding: 0px 7.9%;
 }
 
-#ieee_logo{
-  width: 200px;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 label{
   display: block;
-  /* margin: 7.9% auto; */
   font-size: 18px;
   font-weight: 550;
   font-style: normal;
@@ -67,7 +58,6 @@ input{
   border: none;
   border-bottom: 1px solid #d6d6d6;
   width: 65%;
-  /* margin: 7.9% auto; */
   margin-bottom: 42px;
 }
 
@@ -122,9 +112,12 @@ input:focus{
 }
 
 #recaptcha {
-  margin: 10px 0px;
   width: 100%;
   display: flex;
+}
+
+#g-recaptcha {
+  margin: 10px auto !important;
 }
 
 #con-ieee{
@@ -132,33 +125,50 @@ input:focus{
   display: flex;
 }
 
-#ieee {
-  width: 12.4%;
+#ieee_logo{
+  width: 150px !important;
+  height: 150px !important;
   margin: 0px auto;
-  margin-top: -10% !important;
+  margin-top: -10%;
 }
 
 @media (max-width: 576px) {
 
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
   #form-div {
     background-color: #fff;
-    /* width: 94%; */
-    /* margin: 10% auto; */
     margin: 5% 5%;
+    margin-top: 100px;
     height: auto;
     border-top: 10px solid #4b78be;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 0px gray;
   }
 
-  #ieee{
-    width: 20% !important;
+  form{
+    padding: 0px 3%;
+  }
+
+  #g-recaptcha {
+    display: flex;
+    width: 100% !important;
+    height: 10vh;
+  }
+
+  #g-recaptcha div{
     margin: 0px auto !important;
-    margin-top: -10% !important;
+    width: 98% !important;
+    height: auto !important;
+  }
+
+  #g-recaptcha iframe{
+    margin: 0px 0px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #ieee_logo{
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: 0px !important;
   }
  }

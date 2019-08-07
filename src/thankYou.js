@@ -26,7 +26,9 @@ const ThankYou=({resetState})=>{
             </Col>
             <Col md={3}></Col>
           </Row>
-          <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          <div id="con-ieee">
+            <img src={"ieee.png"} id="ieee_logo" alt=""></img>
+          </div>
         </Container>
       </div>
     );

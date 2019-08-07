@@ -111,7 +111,7 @@ class App extends React.Component
               }
               else{
                 console.log(data);
-                alert("Error while registering user!");
+                alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
             }).catch((err)=>
             {
