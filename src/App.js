@@ -84,7 +84,7 @@ class App extends React.Component
   submit= async ()=>{
     const x = await this.adddomains();
     //this.setState({domains: Array.from(this.state.domains)});
-    //var y=await this.trimInputs();
+    var y=await this.trimInputs();
     var a=this.checkInputs();
     console.log(this.state);
     if(a){
