@@ -17,7 +17,11 @@ const ThankYou=({resetState})=>{
                 <h1 id="one">Thank you</h1>
                 <h5 id="two">for your submission</h5><br/>
                 <p id="three">See you soon at Techloop Alpha :)</p><br/>
-                <p id="four" onClick={resetState}>Submit another response</p>
+                <p id="three">For updates follow us on</p><br/>
+                    <div id="a"><img src={"Insta.png"} id="image" alt=""/><label >@ieeevitvellore</label></div>
+                    <div id="b"><img src={"f_logo_RGB-Blue_72.png"} id="image" alt=""/><label>IEEE VIT Chapter</label></div>
+                <p id="five" onClick={resetState}>Submit another response</p>
+
                 {/* <p className="one">Thank You</p>
                 <p className="two">for the submission!</p>
                 <p className="three">See you soon at Techloop Alpha :)</p>
