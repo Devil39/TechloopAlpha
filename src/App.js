@@ -110,6 +110,7 @@ class App extends React.Component
                 this.setState({form: false});
               }
               else{
+                this.resetState();
                 console.log(data);
                 alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
