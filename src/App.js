@@ -88,10 +88,10 @@ class App extends React.Component
 
   trimInputs=()=>{
     return new Promise((resolve,reject)=>{
-      this.state.email.trim();
-      this.state.name.trim();
-      this.state.regno.trim();
-      this.state.contactno.trim();
+      this.setState({email: this.state.email.trim()});
+      this.setState({name: this.state.name.trim()});
+      this.setState({regno: this.state.regno.trim()});
+      this.setState({contactno: this.state.contactno.trim()});
       resolve();
     });
   }
@@ -103,7 +103,7 @@ class App extends React.Component
     this.setState({domains: Array.from(a)});
   }
 
-  submit= async ()=>{
+  submit=async ()=>{
     const x = await this.adddomains();
     const z= await this.setDomains();
     //this.setState({domains: Array.from(this.state.domains)});
@@ -150,7 +150,8 @@ class App extends React.Component
                 // });
                 // this.forceUpdate();
                 console.log(data);
-                alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
+                alert(data);
+                //alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
             }).catch( async (err)=>
             { 
@@ -159,7 +160,8 @@ class App extends React.Component
               //   });
               //   this.forceUpdate();
               console.log(err);
-              alert("Error while registering user!");
+              //alert("Error while registering user!");
+              alert(err);
             });
         }
       else
