@@ -114,19 +114,26 @@ class App extends React.Component
             })
           })/*.then(res=>{console.log(res);console.log(res.json());var re=res.json();return re;})*/
           .then(res=>res.json())
-          .then(data=>{
+          .then(async (data) =>{
               //console.log(data);
               if(data.status===200){
-                alert("Success!");
+                //alert("Success!");
                 this.setState({form: false});
               }
               else{
-                this.resetState();
+                await this.resetState();
+                this.setState(()=>{
+                });
+                this.forceUpdate();
                 console.log(data);
                 alert("Error while registering user! Kindly check that you have no special characters added in any of the fields!");
               }
-            }).catch((err)=>
-            {
+            }).catch( async (err)=>
+            { 
+              await this.resetState();
+                this.setState(()=>{
+                });
+                this.forceUpdate();
               console.log(err);
               alert("Error while registering user!");
             });
@@ -137,7 +144,7 @@ class App extends React.Component
         }
     }
     else{
-      alert("Invalid Input!");
+      alert("Please check the form fields again, make sure there are no special characters in the fields(including dots)");
     }
   }
   changeregno=(event)=>{
