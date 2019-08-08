@@ -14,12 +14,11 @@ const ThankYou=({resetState})=>{
             <Col md={3}></Col>
             <Col md={6} id="form-div">
               <div id='paneer'>
-                <h1 id="one">Thank you</h1>
-                <h5 id="two">for your submission</h5><br/>
+                <h1 id="one">Thank you!</h1>
                 <p id="three">See you soon at Techloop Alpha :)</p><br/>
-                <p id="three">For updates follow us on</p><br/>
-                    <div id="a"><img src={"Insta.png"} id="image" alt=""/><label >@ieeevitvellore</label></div>
-                    <div id="b"><img src={"f_logo_RGB-Blue_72.png"} id="image" alt=""/><label>IEEE VIT Chapter</label></div>
+                <p id="four">For updates follow us on</p><br/>
+                    <div id="a"><a href={"https://www.instagram.com/ieeevitvellore/"}><img src={"Insta.png"} id="image" alt=""/><label>@ieeevitvellore</label></a></div>
+                    <div id="b"><a href={"https://www.facebook.com/IEEEVIT/"}><img src={"f_logo_RGB-Blue_72.png"} id="image" alt="" href={"https://www.facebook.com/IEEEVIT/"}/><label href={"https://www.facebook.com/IEEEVIT/"}>IEEE VIT Chapter</label></a></div>
                 <p id="five" onClick={resetState}>Submit another response</p>
 
                 {/* <p className="one">Thank You</p>
