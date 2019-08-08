@@ -16,9 +16,7 @@ const ThankYou=({resetState})=>{
               <div id='paneer'>
                 <h1 id="one">Thank you!</h1>
                 <p id="three">See you soon at Techloop Alpha :)</p><br/>
-                <p id="four">For updates follow us on</p><br/>
-                    <div id="a"><a href={"https://www.instagram.com/ieeevitvellore/"}><img src={"Insta.png"} id="image" alt=""/><label>@ieeevitvellore</label></a></div>
-                    <div id="b"><a href={"https://www.facebook.com/IEEEVIT/"}><img src={"f_logo_RGB-Blue_72.png"} id="image" alt="" href={"https://www.facebook.com/IEEEVIT/"}/><label href={"https://www.facebook.com/IEEEVIT/"}>IEEE VIT Chapter</label></a></div>
+                
                 <p id="five" onClick={resetState}>Submit another response</p>
 
                 {/* <p className="one">Thank You</p>
