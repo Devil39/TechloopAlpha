@@ -9,7 +9,7 @@ import Recaptcha from 'react-recaptcha';
 require('dotenv').config();
 
 
-const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange, echeckchange, acheckchange, ocheckchange, submit, changeregno, changeemail, changename, changecontactno, changeother})=>{
+const Form=({verifyCallBack, recaptchaLoaded, state, submit, changeregno, changeemail, changename, changecontactno, changehackerrankid})=>{
     return(
     <div className="body">
       <link href={"https://fonts.googleapis.com/css?family=Roboto&display=swap"} rel="stylesheet"></link>
@@ -33,17 +33,9 @@ const Form=({verifyCallBack, recaptchaLoaded, state, mlcheckchange, wcheckchange
                 <label>Contact No.<span> *</span></label>
 
                 <input placeholder="Your mobile number" onChange={changecontactno}/>
-                <label>Interested Domain(s)<span> *</span></label>
+                <label>Hackerrank Id<span> *</span></label>
 
-                <div id="checkStyle"><input type="checkbox" checked={state.mlcheck} className="checkBox" id="M" onChange={mlcheckchange}/><label id="oplabel">Machine Learning</label></div>
-                <div id="checkStyle"><input type="checkbox" checked={state.wcheck} className="checkBox" id="W" onChange={wcheckchange}/><label id="oplabel" >Web Development</label></div>
-                <div id="checkStyle"><input type="checkbox" checked={state.acheck} className="checkBox" id="A" onChange={acheckchange}/><label id="oplabel">Android Development</label></div>
-                <div id="checkStyle"><input type="checkbox" checked={state.echeck} className="checkBox" id="E" onChange={echeckchange}/><label id="oplabel">Electronics</label></div>
-                <div id="checkStyle"><input type="checkbox" checked={state.ocheck} className="checkBox" id="O" onChange={ocheckchange}/>
-                  <label id="oplabel">Other: </label>
-                  <input id="others" disabled={state.disabled} onChange={changeother}></input>
-                </div>
-
+                <input placeholder="Your hackerrank id" onChange={changehackerrankid}/>
                 <div id="recaptcha">
                     <Recaptcha style="margin: 0px auto;" sitekey={'6Lc6PLEUAAAAAN12MAcKIhEcaN7ptBXqLJCxkaxz'} render="explicit" onloadCallback={(res)=>{
                       console.log("loaded");

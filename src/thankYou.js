@@ -16,7 +16,7 @@ const ThankYou=({resetState})=>{
               <div id='paneer'>
                 <h1 id="one">Thank you</h1>
                 <h5 id="two">for your submission</h5><br/>
-                <p id="three">See you soon at Techloop Alpha :)</p><br/>
+                <p id="three">See you soon at Code Relay :)</p><br/>
                 <p id="three">For updates follow us on</p><br/>
                     <div id="a"><img src={"Insta.png"} id="image" alt=""/><label >@ieeevitvellore</label></div>
                     <div id="b"><img src={"f_logo_RGB-Blue_72.png"} id="image" alt=""/><label>IEEE VIT Chapter</label></div>
